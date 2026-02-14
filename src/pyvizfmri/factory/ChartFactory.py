@@ -1,11 +1,22 @@
+import numpy as np
+
 from ..widgets.HeatMap import HeatMap
 from ..dialogs.sw_params_chooser_dialog import SWParamsDialog
 from ..widgets.Print3DBrain import Print3DBrain
 from ..widgets.Histogram import VectorHeatmap
-from ..utils import (FC, phFCD, swFCD, GBC)
+from ..utils import (FC, phFCD, swFCD)
 
 
 class ChartFactory:
+    @staticmethod
+    def compute_local_gbc_vector(data):
+        fc = FC.from_fMRI(data.T)
+        if np.isscalar(fc) or np.isnan(fc).any():
+            return np.array([np.nan])
+        n_regions = fc.shape[0]
+        fc_wo_diag = fc - np.multiply(fc, np.eye(n_regions))
+        return np.mean(fc_wo_diag, axis=1)
+
     @staticmethod
     def get_chart_data(chart):
         r_min, r_max = chart.get_range(False)
@@ -34,8 +45,8 @@ class ChartFactory:
 
     @staticmethod
     def create_gbc_vector_heatmap(chart):
-        return VectorHeatmap(GBC.from_fMRI(ChartFactory.get_chart_data(chart)))
+        return VectorHeatmap(ChartFactory.compute_local_gbc_vector(ChartFactory.get_chart_data(chart)))
 
     @staticmethod
     def create_gbc_3d_brain(chart,default_config):
-        return Print3DBrain(GBC.from_fMRI(ChartFactory.get_chart_data(chart)),default_config)
+        return Print3DBrain(ChartFactory.compute_local_gbc_vector(ChartFactory.get_chart_data(chart)),default_config)
