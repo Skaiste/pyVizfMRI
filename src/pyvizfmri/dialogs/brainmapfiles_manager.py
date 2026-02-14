@@ -2,7 +2,7 @@ import os
 import shutil
 from PySide6.QtWidgets import QFileDialog, QMessageBox, QDialog, QVBoxLayout, QListWidget, QPushButton, QHBoxLayout, QGroupBox
 
-from ..brain_map.BrainMapFilesManager import BrainMapManager as manager
+from ..brain_map import BrainMapFilesManager as manager
 
 
 def init_mapping_folder():
