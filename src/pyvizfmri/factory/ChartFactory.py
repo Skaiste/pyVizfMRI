@@ -1,8 +1,9 @@
-from src.widgets.HeatMap import HeatMap
-from dialogs.sw_params_chooser_dialog import SWParamsDialog
-from src.widgets.Print3DBrain import Print3DBrain
-from src.widgets.Histogram import VectorHeatmap
-from wholebrain.Observables import (FC, phFCD, swFCD, GBC)
+from ..widgets.HeatMap import HeatMap
+from ..dialogs.sw_params_chooser_dialog import SWParamsDialog
+from ..widgets.Print3DBrain import Print3DBrain
+from ..widgets.Histogram import VectorHeatmap
+from ..utils import (FC, phFCD, swFCD, GBC)
+
 
 class ChartFactory:
     @staticmethod

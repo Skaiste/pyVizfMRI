@@ -1,5 +1,7 @@
 from PySide6.QtWidgets import QDialog, QHBoxLayout, QVBoxLayout, QLabel, QSpinBox, QPushButton
-from widgets.series.MultipleLineChart import MultipleLineChart
+
+from ..widgets.series.MultipleLineChart import MultipleLineChart
+
 
 class SWParamsDialog(QDialog):
     def __init__(self, swFCD, chart_data, parent=None):

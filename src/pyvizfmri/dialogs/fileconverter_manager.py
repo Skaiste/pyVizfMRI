@@ -1,7 +1,8 @@
 import os
 import shutil
 from PySide6.QtWidgets import QFileDialog, QMessageBox, QDialog, QVBoxLayout, QListWidget, QPushButton, QHBoxLayout, QGroupBox
-import dataConvert.ConverterManager as ConverterManager
+
+from ..dataConvert.ConverterManager import ConverterManager
 
 
 def init_pluggin_folder():

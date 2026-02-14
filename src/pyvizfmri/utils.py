@@ -1,8 +1,23 @@
 import hashlib
+import sys
+from pathlib import Path
 
 from PySide6.QtCharts import QLineSeries
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor
+
+# adding wholebrain to be accessible through utils
+current_dir = Path(__file__).resolve().parent
+root_dir = current_dir.parent.parent
+wholebrain_dir = root_dir / "wholebrain"
+if str(wholebrain_dir) not in sys.path:
+    sys.path.insert(0, str(wholebrain_dir))
+print(sys.path)
+
+import WholeBrain.Observables.BOLDFilters as wholebrain_filters
+from WholeBrain.Observables import (FC, phFCD, swFCD, GBC)
+from WholeBrain.Utils.Plotting.plot3DBrain import plotColorView
+from WholeBrain.Utils.Plotting.plot3DBrain_Utils import setUpGlasser360
 
 
 def hash_to_color(input_number):

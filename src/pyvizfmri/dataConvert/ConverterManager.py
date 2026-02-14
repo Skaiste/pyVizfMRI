@@ -1,10 +1,13 @@
-from dataConvert.FileConverter import (FileConverter, JSONConverter, XMLConverter, ExcelConverter, MATConverter,
-                                       NIFTIConverter, NumpyConverter, TXTConverter)
+from ..dataConvert.FileConverter import (FileConverter, JSONConverter, XMLConverter, ExcelConverter, MATConverter,
+                                         NIFTIConverter, NumpyConverter, TXTConverter)
 from PySide6.QtWidgets import (QInputDialog)
 import importlib.util
 import os
+import pathlib
 
-PLUGIN_DIR = os.path.join(os.path.expanduser('~'), 'pyVizfMRI\\file_converter_plugins')
+project_dir = pathlib.Path(__file__).parent.parent
+root_dir = project_dir.parent.parent
+PLUGIN_DIR = str(root_dir / "file_converter_plugins")
 
 
 class ConverterManager:

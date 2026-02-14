@@ -3,7 +3,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from PySide6.QtWidgets import QWidget, QVBoxLayout
-import global_variables as settings
+
+from .. import global_variables as settings
+
 
 class HeatMap(QWidget):
     def __init__(self, data):

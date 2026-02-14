@@ -1,0 +1,3 @@
+[submodule "WholeBrain"]
+	path = WholeBrain
+	url = https://github.com/Skaiste/WholeBrain

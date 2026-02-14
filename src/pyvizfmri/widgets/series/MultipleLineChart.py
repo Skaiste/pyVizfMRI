@@ -2,7 +2,7 @@ from PySide6.QtCharts import QChart, QChartView, QLineSeries
 from PySide6.QtGui import QPainter, QPen
 import numpy as np
 
-from utils import hash_to_color, draw_vertical_line, draw_vertical_line_w_range
+from ...utils import hash_to_color, draw_vertical_line, draw_vertical_line_w_range
 
 
 class MultipleLineChart:

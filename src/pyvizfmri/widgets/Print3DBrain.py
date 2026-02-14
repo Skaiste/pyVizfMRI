@@ -1,9 +1,8 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QFileDialog, QMessageBox
 from scipy.spatial import cKDTree
-from wholebrain.Utils.plot3DBrain_Utils import setUpGlasser360
 from matplotlib import cm, pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from brain_map.BrainMapFilesManager import BrainMapManager
+import pathlib
 import pyreadr
 import pandas as pd
 import re
@@ -11,9 +10,12 @@ import nibabel as nib
 import numpy as np
 import matplotlib as mpl
 from matplotlib.colors import Normalize
-from wholebrain.Utils.plot3DBrain import plotColorView
 
-directory = "./brain_map"
+from ..brain_map.BrainMapFilesManager import BrainMapManager
+from ..utils import plotColorView, setUpGlasser360
+
+current_dir = pathlib.Path(__file__).resolve().parent
+directory = str(current_dir.parent / "brain_map")
 
 def find_closest_points(reference, target):
     tree = cKDTree(reference)

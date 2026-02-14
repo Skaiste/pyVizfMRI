@@ -1,8 +1,12 @@
 from PySide6.QtWidgets import (QInputDialog)
 import os
+import pathlib
 
-MAPPING_FILES_DIR = os.path.join(os.path.expanduser('~'), 'pyVizfMRI\\brain_mappings_files')
-SYSTEM_MAPPING_FILES_DIR = "./mappings"
+project_dir = pathlib.Path(__file__).parent.parent
+root_dir = project_dir.parent.parent
+
+MAPPING_FILES_DIR = str(root_dir / "brain_mappings_files")
+SYSTEM_MAPPING_FILES_DIR = str(project_dir / "mappings")
 
 class BrainMapManager:
     def __init__(self):

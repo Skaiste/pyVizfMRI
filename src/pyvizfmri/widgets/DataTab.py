@@ -2,9 +2,10 @@ from PySide6.QtWidgets import (QWidget,
                                QVBoxLayout,
                                QHBoxLayout,
                                QPushButton)
-from widgets.series.MultipleLineChart import MultipleLineChart
-from widgets.series.RangeControlWidget import RangeControlWidget
-from dialogs.BaseChartDialog import BaseChartDialog
+
+from ..widgets.series.MultipleLineChart import MultipleLineChart
+from ..widgets.series.RangeControlWidget import RangeControlWidget
+from ..dialogs.BaseChartDialog import BaseChartDialog
 
 
 class DataTab(QWidget):

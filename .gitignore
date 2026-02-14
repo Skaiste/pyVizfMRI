@@ -24,3 +24,5 @@ egg-info/
 
 # Virtual environment
 venv/
+.venv/
+.idea/

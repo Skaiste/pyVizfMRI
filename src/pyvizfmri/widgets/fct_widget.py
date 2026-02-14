@@ -1,8 +1,8 @@
 import numpy as np
 from PySide6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout
 
-from widgets.slider_value import SliderValue
-from widgets.HeatMap import HeatMap
+from ..widgets.slider_value import SliderValue
+from ..widgets.HeatMap import HeatMap
 
 
 class FCtHeatMap(QWidget):

@@ -1,6 +1,8 @@
-from factory.ChartFactory import ChartFactory
 from PySide6.QtWidgets import (QVBoxLayout, QFileDialog, QPushButton,
                                QDialog, QLabel, QWidget)
+
+from ..factory.ChartFactory import ChartFactory
+
 
 class BaseChartDialog(QDialog):
     def __init__(self, chart, chart_type):

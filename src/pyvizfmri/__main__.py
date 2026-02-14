@@ -12,19 +12,21 @@ from PySide6.QtWidgets import (QApplication,
                                QDialog)
 from PySide6.QtGui import QAction
 from pathlib import Path
-from dialogs.settings_dialog import SettingsDialog
-from dialogs.fileconverter_manager import FileConverterManager
-from widgets.DataTab import DataTab
-import wholebrain.Observables.BOLDFilters as filters
-from dataConvert.ConverterManager import ConverterManager
-from dialogs.brainmapfiles_manager import BrainMapFilesManager
-import global_variables as settings
+
+from .utils import wholebrain_filters as filters
+
+from .dialogs.settings_dialog import SettingsDialog
+from .dialogs.fileconverter_manager import FileConverterManager
+from .widgets.DataTab import DataTab
+from .dataConvert.ConverterManager import ConverterManager
+from .dialogs.brainmapfiles_manager import BrainMapFilesManager
+from . import global_variables as settings
+
 
 filters.k = 2  # 2nd order butterworth filter
 filters.flp = .008  # lowpass frequency of filter
 filters.fhi = .08  # highpass
 filters.TR = 0.754  # sampling interval
-
 
 class MainWindow(QMainWindow):
 
@@ -179,10 +181,13 @@ class MainWindow(QMainWindow):
         else:
             event.accept()
 
+def main():
+    app = QApplication(sys.argv)
 
-app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
 
-window = MainWindow()
-window.show()
+    app.exec()
 
-app.exec()
+if __name__ == "__main__":
+    main()
