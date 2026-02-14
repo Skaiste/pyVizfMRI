@@ -16,9 +16,14 @@ This project provides a comprehensive visualization tool for BOLD signals using 
 - **Extensible and Open Source**: Contribute and improve the tool as per your requirements.
 - **User-Friendly Interface**: Easy to use with a clean and simple UI.
 
-## 💻 Installation
+## 💻 Installation & Usage
 
 To get started, clone the repository and install the necessary dependencies.
+``` bash
+uv sync
+uv run pyvixfmri
+```
+Load a csv file for a sample with shape timepoints x regions, and compute different plots.
 
 ## 📝 License
 
